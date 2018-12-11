@@ -6,5 +6,8 @@ setup(
     version=None,
     packages=find_packages(),
     license='Creative Commons Attribution-Noncommercial-Share Alike license',
-    url=None
+    url=None,
+    install_requires=[
+        'jsonschema'
+    ]
 )

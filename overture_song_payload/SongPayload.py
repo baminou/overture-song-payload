@@ -6,7 +6,7 @@ import json
 
 class SongPayload(PayloadObject):
 
-    def __init__(self, analysis_id=None, analysis_type=None, experiment_payload=None, study=None, sample_payloads=[], file_payloads=[], info={}):
+    def __init__(self, analysis_id=None, analysis_type=None, experiment_payload=None, study=None, sample_payloads=None, file_payloads=None, info=None):
         self.file_payloads = file_payloads
         self.info = info
         self.analysis_id = analysis_id
@@ -14,6 +14,9 @@ class SongPayload(PayloadObject):
         self.experiment_payload = experiment_payload
         self.sample_payloads = sample_payloads
         self.study = study
+        self.sample_payloads = [] if sample_payloads==None else sample_payloads
+        self.file_payloads = [] if file_payloads==None else file_payloads
+        self.info = {} if info==None else info
 
     def set_analysis_id(self, analysis_id=None):
         self.analysis_id = analysis_id

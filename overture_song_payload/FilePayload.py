@@ -3,12 +3,13 @@ from .PayloadObject import PayloadObject
 
 class FilePayload(PayloadObject):
 
-    def __init__(self, file_access=None, file_name=None, md5sum=None, file_type=None, file_size=None):
+    def __init__(self, file_access=None, file_name=None, md5sum=None, file_type=None, file_size=None, info=None):
         self.file_access = file_access
         self.file_name = file_name
         self.file_md5_sum = md5sum
         self.file_type = file_type
         self.file_size = file_size
+        self.info = {} if info==None else info
 
     def set_file_access(self, file_access):
         self.file_access = file_access
@@ -30,6 +31,10 @@ class FilePayload(PayloadObject):
         self.file_type = type
         return
 
+    def set_info(self, info):
+        self.info = info
+        return
+
     def get_file_access(self):
         return self.file_access
 
@@ -45,11 +50,15 @@ class FilePayload(PayloadObject):
     def get_file_type(self):
         return self.file_type
 
+    def get_info(self):
+        return self.info
+
     def to_array(self):
         return {
             'fileAccess': self.get_file_access(),
             'fileMd5sum': self.get_file_md5_sum(),
             'fileName': self.get_file_name(),
             'fileType': self.get_file_type(),
-            'fileSize': int(self.get_file_size())
+            'fileSize': int(self.get_file_size()),
+            'info': self.get_info()
         }

@@ -3,11 +3,12 @@ from .DonorPayload import DonorPayload
 
 class SamplePayload(DonorPayload):
 
-    def __init__(self, donor_payload, sample_submitter_id, sample_type, specimen_payload):
+    def __init__(self, donor_payload, sample_submitter_id, sample_type, specimen_payload,info=None):
         self.donor_payload = donor_payload
         self.sample_submitter_id = sample_submitter_id
         self.sample_type = sample_type
         self.specimen_payload = specimen_payload
+        self.info = {} if info==None else info
 
     def set_sample_submitter_id(self, sample_submitter_id):
         self.sample_submitter_id = sample_submitter_id
@@ -25,6 +26,10 @@ class SamplePayload(DonorPayload):
         self.donor_payload = donor_payload
         return
 
+    def set_info(self, info):
+        self.info = info
+        return
+
     def get_sample_submitter_id(self):
         return self.sample_submitter_id
 
@@ -37,10 +42,14 @@ class SamplePayload(DonorPayload):
     def get_donor_payload(self):
         return self.donor_payload
 
+    def get_info(self):
+        return self.info
+
     def to_array(self):
         return {
             'sampleSubmitterId': self.get_sample_submitter_id(),
             'sampleType': self.get_sample_type(),
             'specimen': self.get_specimen_payload().to_array(),
-            'donor': self.donor_payload.to_array()
+            'donor': self.donor_payload.to_array(),
+            'info': self.get_info()
         }

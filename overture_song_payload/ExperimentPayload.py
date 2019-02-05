@@ -43,7 +43,7 @@ class ExperimentPayload(PayloadObject):
         return self.info
 
     def get_paired_end(self):
-        return self.get_paired_end()
+        return self.paired_end
 
     def to_array(self):
         return {

@@ -6,8 +6,8 @@ setup(
     version='0.0.3',
     packages=find_packages(),
     license='Creative Commons Attribution-Noncommercial-Share Alike license',
-    url=None,
+    url="https://github.com/baminou/overture-song-payload",
     install_requires=[
-        'jsonschema'
+        'jsonschema==2.6.0','setuptools==40.0.0'
     ]
 )

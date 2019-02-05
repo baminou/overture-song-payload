@@ -3,7 +3,7 @@ from setuptools import find_packages
 
 setup(
     name='overture_song_payload',
-    version='0.0.3',
+    version='0.0.4',
     packages=find_packages(),
     license='Creative Commons Attribution-Noncommercial-Share Alike license',
     url="https://github.com/baminou/overture-song-payload",

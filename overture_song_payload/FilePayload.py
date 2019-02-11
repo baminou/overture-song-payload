@@ -98,5 +98,7 @@ class FilePayload(PayloadObject):
             return 'FASTQ'
         if fname.endswith('.fq.gz'):
             return 'FASTQ'
+        if fname.endswith('.tgz'):
+            return 'TGZ'
         raise Exception('unknown file type for file: %s' % fname)
 
